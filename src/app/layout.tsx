@@ -3,6 +3,8 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import '@fortawesome/fontawesome-free/css/all.min.css'
 import Navbar from "@/components/Navbar"
+import GoUpButton from "@/components/GoUpButton"
+import Footer from "@/components/Footer"
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -23,6 +25,8 @@ export default function RootLayout({
         <main>
           {children}
         </main>
+        <Footer />
+        <GoUpButton />
       </body>
     </html>
   );

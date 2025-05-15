@@ -70,7 +70,7 @@ export default function Hero() {
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-[#A8E4A0]/5 rounded-full blur-3xl animate-pulse-slow" style={{ animationDelay: '2s' }} />
       </div>
 
-      <div className="relative w-full px-4 sm:px-6 lg:px-8 pt-32 pb-16">
+      <div className="relative w-full px-4 sm:px-6 lg:px-8 pt-48 pb-16">
         <motion.div
           variants={containerVariants}
           initial="hidden"
