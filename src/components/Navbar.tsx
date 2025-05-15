@@ -57,9 +57,9 @@ export default function Navbar() {
           className={cn(
             'flex items-center justify-between rounded-2xl border border-white/10 transition-all duration-500',
             scrolled
-              ? 'bg-gray-900/80 backdrop-blur-xl shadow-lg py-4'
-              : 'bg-gray-900/60 backdrop-blur-md shadow-md py-5',
-            isHovered && 'border-green-400/30 shadow-lg shadow-green-400/10'
+              ? 'bg-gray-900/40 backdrop-blur-xl shadow-lg py-4'
+              : 'bg-gray-900/30 backdrop-blur-md shadow-md py-5',
+            isHovered && 'border-green-400/20 shadow-lg shadow-green-400/5'
           )}
         >
           {/* Desktop Menu */}
