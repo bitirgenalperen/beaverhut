@@ -2,7 +2,7 @@
 
 import { motion } from 'framer-motion'
 import { useRouter } from 'next/navigation'
-import { ArrowRight, Code, Server, Database, Shield, Sparkles, Package, Rocket, Clock, Target, Heart, Lightbulb } from 'lucide-react'
+import { Code, Server, Database, Sparkles, Package, Rocket, Clock, Target, Heart, Lightbulb, Shield } from 'lucide-react'
 
 const fadeInUp = {
   hidden: { opacity: 0, y: 20 },
@@ -84,11 +84,36 @@ export default function HomePage() {
   return (
     <div className="min-h-screen bg-[#0A0F14]">
       {/* Hero Section */}
-      <section className="relative pt-48 pb-20 overflow-hidden">
+      <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+        {/* Animated Background Elements */}
         <div className="absolute inset-0 -z-10">
-          <div className="absolute top-0 left-1/4 w-96 h-96 bg-[#39FF85]/5 rounded-full blur-3xl animate-pulse-slow" />
-          <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-[#4A90E2]/5 rounded-full blur-3xl animate-pulse-slow" style={{ animationDelay: '1s' }} />
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-gradient-to-r from-[#39FF85]/10 to-[#4A90E2]/10 rounded-full blur-3xl animate-pulse-slow" style={{ animationDelay: '0.5s' }} />
+          {/* Main Gradient Orb */}
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1000px] h-[1000px]">
+            <div className="absolute inset-0 bg-gradient-to-r from-[#39FF85]/10 via-[#A8E4A0]/10 to-[#4A90E2]/10 rounded-full blur-3xl animate-pulse-slow" />
+            <div className="absolute inset-0 bg-gradient-to-r from-[#39FF85]/5 via-[#A8E4A0]/5 to-[#4A90E2]/5 rounded-full blur-3xl animate-pulse-slow" style={{ animationDelay: '1s' }} />
+          </div>
+          
+          {/* Floating Particles */}
+          {[...Array(20)].map((_, i) => (
+            <motion.div
+              key={i}
+              className="absolute w-2 h-2 rounded-full bg-gradient-to-r from-[#39FF85] to-[#4A90E2]"
+              style={{
+                top: `${Math.random() * 100}%`,
+                left: `${Math.random() * 100}%`,
+              }}
+              animate={{
+                y: [0, -100, 0],
+                opacity: [0.2, 0.8, 0.2],
+                scale: [1, 1.5, 1],
+              }}
+              transition={{
+                duration: 5 + Math.random() * 5,
+                repeat: Infinity,
+                delay: Math.random() * 5,
+              }}
+            />
+          ))}
         </div>
 
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -96,56 +121,121 @@ export default function HomePage() {
             initial="hidden"
             animate="visible"
             variants={staggerContainer}
-            className="max-w-4xl mx-auto text-center"
+            className="max-w-6xl mx-auto"
           >
-            <motion.div
-              variants={fadeInUp}
-              className="inline-block mb-6"
-            >
-              <div className="relative">
-                <div className="absolute inset-0 bg-gradient-to-r from-[#39FF85]/20 to-[#4A90E2]/20 rounded-full blur-xl" />
-                <div className="relative px-6 py-2 rounded-full border border-[#39FF85]/20 bg-[#1A1F26]/50 backdrop-blur-sm">
-                  <span className="text-[#39FF85] font-medium">Welcome to BeaverHut</span>
-                </div>
-              </div>
-            </motion.div>
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+              {/* Left Column - Text Content */}
+              <motion.div
+                variants={fadeInUp}
+                className="space-y-8 text-center lg:text-left"
+              >
+                <motion.div
+                  variants={fadeInUp}
+                  className="inline-block"
+                >
+                  <div className="relative">
+                    <div className="absolute inset-0 bg-gradient-to-r from-[#39FF85]/20 to-[#4A90E2]/20 rounded-full blur-xl" />
+                    <div className="relative px-6 py-2 rounded-full border border-[#39FF85]/20 bg-[#1A1F26]/50 backdrop-blur-sm">
+                      <span className="text-[#39FF85] font-medium">Welcome to BeaverHut</span>
+                    </div>
+                  </div>
+                </motion.div>
 
-            <motion.h1
-              variants={fadeInUp}
-              className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight mb-6"
-            >
-              <span className="bg-gradient-to-r from-[#39FF85] via-[#A8E4A0] to-[#4A90E2] bg-clip-text text-transparent">
-                Building the Future of Technology
-              </span>
-            </motion.h1>
-            <motion.p
-              variants={fadeInUp}
-              className="text-lg sm:text-xl text-[#A8E4A0]/70 mb-8"
-            >
-              We create innovative solutions that transform businesses and enhance user experiences.
-              Let&apos;s build something amazing together.
-            </motion.p>
-            <motion.div
-              variants={fadeInUp}
-              className="flex flex-col sm:flex-row gap-4 justify-center"
-            >
-              <motion.button
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
-                onClick={() => router.push('/contact')}
-                className="px-8 py-3 rounded-xl bg-gradient-to-r from-[#39FF85] to-[#4A90E2] hover:from-[#39FF85]/90 hover:to-[#4A90E2]/90 transition-all duration-300"
+                <motion.h1
+                  variants={fadeInUp}
+                  className="text-5xl sm:text-6xl md:text-7xl font-bold tracking-tight"
+                >
+                  <span className="block mb-4 text-[#E8ECEF]">Crafting</span>
+                  <span className="bg-gradient-to-r from-[#39FF85] via-[#A8E4A0] to-[#4A90E2] bg-clip-text text-transparent">
+                    Digital Excellence
+                  </span>
+                </motion.h1>
+
+                <motion.p
+                  variants={fadeInUp}
+                  className="text-xl text-[#A8E4A0]/70 max-w-xl mx-auto lg:mx-0"
+                >
+                  We create innovative solutions that transform businesses and enhance user experiences.
+                  Let&apos;s build something amazing together.
+                </motion.p>
+
+                <motion.div
+                  variants={fadeInUp}
+                  className="flex flex-col sm:flex-row gap-6 justify-center lg:justify-start"
+                >
+                  <motion.button
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                    onClick={() => router.push('/contact')}
+                    className="group relative px-8 py-4 rounded-xl overflow-hidden"
+                  >
+                    <div className="absolute inset-0 bg-gradient-to-r from-[#39FF85] to-[#4A90E2] transition-transform duration-300 group-hover:scale-110" />
+                    <span className="relative text-[#0A0F14] font-medium">Get Started</span>
+                  </motion.button>
+                  <motion.button
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                    onClick={() => router.push('/about')}
+                    className="group relative px-8 py-4 rounded-xl overflow-hidden"
+                  >
+                    <div className="absolute inset-0 bg-gradient-to-r from-[#39FF85]/10 to-[#4A90E2]/10 transition-transform duration-300 group-hover:scale-110" />
+                    <span className="relative text-[#E8ECEF] font-medium">Learn More</span>
+                  </motion.button>
+                </motion.div>
+              </motion.div>
+
+              {/* Right Column - Animated Visual */}
+              <motion.div
+                variants={fadeInUp}
+                className="relative hidden lg:block"
               >
-                Get Started
-              </motion.button>
-              <motion.button
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
-                onClick={() => router.push('/about')}
-                className="px-8 py-3 rounded-xl border border-[#39FF85]/20 hover:border-[#39FF85]/40 transition-all duration-300"
-              >
-                Learn More
-              </motion.button>
-            </motion.div>
+                <div className="relative w-full aspect-square">
+                  {/* Animated Rings */}
+                  <div className="absolute inset-0">
+                    {[...Array(3)].map((_, i) => (
+                      <motion.div
+                        key={i}
+                        className="absolute inset-0 rounded-full border-2 border-[#39FF85]/20"
+                        style={{
+                          transform: `scale(${1 + i * 0.2})`,
+                        }}
+                        animate={{
+                          rotate: [0, 360],
+                        }}
+                        transition={{
+                          duration: 20 + i * 5,
+                          repeat: Infinity,
+                          ease: "linear",
+                        }}
+                      />
+                    ))}
+                  </div>
+
+                  {/* Center Element */}
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <motion.div
+                      className="relative w-64 h-64"
+                      animate={{
+                        scale: [1, 1.1, 1],
+                      }}
+                      transition={{
+                        duration: 4,
+                        repeat: Infinity,
+                        ease: "easeInOut",
+                      }}
+                    >
+                      <div className="absolute inset-0 bg-gradient-to-r from-[#39FF85]/20 to-[#4A90E2]/20 rounded-full blur-xl" />
+                      <div className="absolute inset-0 bg-gradient-to-r from-[#39FF85]/10 to-[#4A90E2]/10 rounded-full" />
+                      <div className="absolute inset-0 flex items-center justify-center">
+                        <div className="w-32 h-32 rounded-full bg-[#1A1F26]/50 backdrop-blur-sm flex items-center justify-center">
+                          <Sparkles className="w-16 h-16 text-[#39FF85] animate-pulse" />
+                        </div>
+                      </div>
+                    </motion.div>
+                  </div>
+                </div>
+              </motion.div>
+            </div>
           </motion.div>
         </div>
       </section>
@@ -324,40 +414,134 @@ export default function HomePage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20">
+      <section className="py-20 relative overflow-hidden">
+        {/* Background Elements */}
+        <div className="absolute inset-0 -z-10">
+          <div className="absolute top-0 right-1/4 w-96 h-96 bg-[#39FF85]/5 rounded-full blur-3xl animate-pulse-slow" />
+          <div className="absolute bottom-0 left-1/4 w-96 h-96 bg-[#4A90E2]/5 rounded-full blur-3xl animate-pulse-slow" style={{ animationDelay: '1s' }} />
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-gradient-to-r from-[#39FF85]/10 to-[#4A90E2]/10 rounded-full blur-3xl animate-pulse-slow" style={{ animationDelay: '0.5s' }} />
+        </div>
+
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
             variants={staggerContainer}
-            className="max-w-4xl mx-auto"
+            className="max-w-6xl mx-auto"
           >
             <motion.div
               variants={fadeInUp}
-              className="relative p-8 rounded-2xl bg-gradient-to-br from-[#39FF85]/5 to-[#4A90E2]/5 border border-[#39FF85]/10"
+              className="relative"
             >
-              <div className="absolute inset-0 bg-gradient-to-r from-[#39FF85]/5 to-[#4A90E2]/5 rounded-2xl blur-xl" />
-              <div className="relative text-center">
-                <div className="inline-block mb-6">
-                  <Sparkles className="w-12 h-12 text-[#39FF85] animate-pulse" />
+              {/* Decorative Elements */}
+              <div className="absolute -top-20 -left-20 w-40 h-40 bg-[#39FF85]/5 rounded-full blur-2xl animate-pulse-slow" />
+              <div className="absolute -bottom-20 -right-20 w-40 h-40 bg-[#4A90E2]/5 rounded-full blur-2xl animate-pulse-slow" style={{ animationDelay: '1s' }} />
+              
+              {/* Main Content */}
+              <div className="relative p-8 sm:p-12 rounded-3xl bg-gradient-to-br from-[#39FF85]/5 to-[#4A90E2]/5 border border-[#39FF85]/10 backdrop-blur-sm">
+                <div className="absolute inset-0 bg-gradient-to-r from-[#39FF85]/5 to-[#4A90E2]/5 rounded-3xl blur-xl" />
+                
+                {/* Content Grid */}
+                <div className="relative grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+                  {/* Left Column - Text Content */}
+                  <div className="space-y-6 text-center lg:text-left">
+                    <motion.div
+                      variants={fadeInUp}
+                      className="inline-block"
+                    >
+                      <div className="relative">
+                        <div className="absolute inset-0 bg-gradient-to-r from-[#39FF85]/20 to-[#4A90E2]/20 rounded-full blur-xl" />
+                        <div className="relative px-6 py-2 rounded-full border border-[#39FF85]/20 bg-[#1A1F26]/50 backdrop-blur-sm">
+                          <span className="text-[#39FF85] font-medium">Let&apos;s Build Together</span>
+                        </div>
+                      </div>
+                    </motion.div>
+
+                    <motion.h2
+                      variants={fadeInUp}
+                      className="text-3xl sm:text-4xl font-bold text-[#E8ECEF]"
+                    >
+                      Ready to
+                      <span className="block mt-2 bg-gradient-to-r from-[#39FF85] via-[#A8E4A0] to-[#4A90E2] bg-clip-text text-transparent">
+                        Transform Your Business?
+                      </span>
+                    </motion.h2>
+
+                    <motion.p
+                      variants={fadeInUp}
+                      className="text-lg text-[#A8E4A0]/70"
+                    >
+                      Let&apos;s work together to create innovative solutions that drive your success.
+                      Get in touch to start your journey with us.
+                    </motion.p>
+
+                    <motion.div
+                      variants={fadeInUp}
+                      className="flex flex-col sm:flex-row gap-4 pt-4 justify-center lg:justify-start"
+                    >
+                      <motion.button
+                        whileHover={{ scale: 1.05 }}
+                        whileTap={{ scale: 0.95 }}
+                        onClick={() => router.push('/contact')}
+                        className="group px-8 py-4 bg-[#39FF85] text-[#0A0F14] rounded-xl font-medium hover:bg-[#39FF85]/90 transition-all duration-300 flex items-center justify-center gap-2"
+                      >
+                        Get in Touch
+                      </motion.button>
+                      <motion.button
+                        whileHover={{ scale: 1.05 }}
+                        whileTap={{ scale: 0.95 }}
+                        onClick={() => router.push('/services')}
+                        className="group px-8 py-4 bg-transparent border-2 border-[#39FF85]/20 text-[#E8ECEF] rounded-xl font-medium hover:border-[#39FF85]/40 transition-all duration-300 flex items-center justify-center gap-2"
+                      >
+                        Explore Services
+                      </motion.button>
+                    </motion.div>
+                  </div>
+
+                  {/* Right Column - Animated Elements */}
+                  <motion.div
+                    variants={fadeInUp}
+                    className="relative flex items-center justify-center"
+                  >
+                    <div className="relative w-64 h-64">
+                      {/* Outer Ring */}
+                      <div className="absolute inset-0 rounded-full border-2 border-[#39FF85]/20 animate-spin-slow" />
+                      <div className="absolute inset-4 rounded-full border-2 border-[#4A90E2]/20 animate-spin-slow" style={{ animationDirection: 'reverse' }} />
+                      
+                      {/* Center Icon */}
+                      <div className="absolute inset-0 flex items-center justify-center">
+                        <div className="relative">
+                          <div className="absolute inset-0 bg-gradient-to-r from-[#39FF85]/20 to-[#4A90E2]/20 rounded-full blur-xl animate-pulse-slow" />
+                          <div className="relative w-32 h-32 rounded-full bg-[#1A1F26]/50 backdrop-blur-sm flex items-center justify-center">
+                            <Sparkles className="w-16 h-16 text-[#39FF85] animate-pulse" />
+                          </div>
+                        </div>
+                      </div>
+
+                      {/* Floating Elements */}
+                      <div className="absolute inset-0">
+                        {[...Array(6)].map((_, i) => (
+                          <motion.div
+                            key={i}
+                            className="absolute w-4 h-4 rounded-full bg-gradient-to-r from-[#39FF85] to-[#4A90E2]"
+                            animate={{
+                              x: [0, Math.cos(i * Math.PI / 3) * 100],
+                              y: [0, Math.sin(i * Math.PI / 3) * 100],
+                              scale: [1, 1.2, 1],
+                              opacity: [0.5, 1, 0.5]
+                            }}
+                            transition={{
+                              duration: 3,
+                              repeat: Infinity,
+                              delay: i * 0.5
+                            }}
+                          />
+                        ))}
+                      </div>
+                    </div>
+                  </motion.div>
                 </div>
-                <h2 className="text-3xl font-bold text-[#E8ECEF] mb-4">
-                  Ready to Transform Your Business?
-                </h2>
-                <p className="text-lg text-[#A8E4A0]/70 mb-8">
-                  Let&apos;s work together to create innovative solutions that drive your success.
-                  Get in touch to start your journey with us.
-                </p>
-                <motion.button
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
-                  onClick={() => router.push('/contact')}
-                  className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-gradient-to-r from-[#39FF85] to-[#4A90E2] hover:from-[#39FF85]/90 hover:to-[#4A90E2]/90 transition-all duration-300"
-                >
-                  Get in Touch
-                  <ArrowRight className="w-5 h-5" />
-                </motion.button>
               </div>
             </motion.div>
           </motion.div>

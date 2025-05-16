@@ -9,7 +9,7 @@ import {
   FileText, 
   Database,
   Puzzle,
-  ArrowRight
+  TabletSmartphone
 } from 'lucide-react'
 
 const fadeInUp = {
@@ -42,7 +42,7 @@ const services = [
     ]
   },
   {
-    icon: Smartphone,
+    icon: TabletSmartphone,
     title: "Mobile Applications",
     description: "Native and cross-platform mobile applications that deliver exceptional user experiences across iOS and Android devices.",
     features: [
@@ -311,7 +311,6 @@ export default function ServicesPage() {
                         className="group px-8 py-4 bg-[#39FF85] text-[#0A0F14] rounded-xl font-medium hover:bg-[#39FF85]/90 transition-all duration-300 flex items-center justify-center gap-2"
                       >
                         Get in Touch
-                        <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
                       </motion.button>
                       <motion.button
                         whileHover={{ scale: 1.05 }}

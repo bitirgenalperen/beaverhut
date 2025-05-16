@@ -1,7 +1,7 @@
 'use client'
 
 import Link from 'next/link'
-import { Github, Twitter, Linkedin, Mail, ArrowRight, Sparkles, Brain, Code, Globe, Shield, Zap, LucideIcon } from 'lucide-react'
+import { Github, Twitter, Linkedin, Mail, ArrowRight, Sparkles, Brain, Code, Globe, Shield, Zap, LucideIcon, BadgeInfo, TabletSmartphone, Webhook, MonitorPlay, Shell } from 'lucide-react'
 import Newsletter from './Newsletter'
 import { motion } from 'framer-motion'
 
@@ -13,16 +13,19 @@ interface FooterLink {
 
 const footerLinks: Record<string, FooterLink[]> = {
   Company: [
+    { name: 'Services', href: '/services', icon: BadgeInfo },
     { name: 'About Us', href: '/about', icon: Sparkles },
-    { name: 'Careers', href: '/careers', icon: Brain },
+    { name: 'Careers', href: '/careers', icon: Shell },
     { name: 'Contact', href: '/contact', icon: Mail },
   ],
   Products: [
-    { name: 'AI Solutions', href: '/products/ai', icon: Brain },
-    { name: 'Mobile Apps', href: '/products/mobile', icon: Code },
     { name: 'Web Apps', href: '/products/web', icon: Globe },
+    { name: 'Mobile Apps', href: '/products/mobile', icon: TabletSmartphone },
+    { name: 'API Development', href: '/products/api', icon: Webhook },
+    { name: 'AI Solutions', href: '/products/ai', icon: Brain }
   ],
   Resources: [
+    { name: 'Tutorials', href: '/tutorials', icon: MonitorPlay },
     { name: 'Documentation', href: '/docs', icon: Code },
     { name: 'API Reference', href: '/api', icon: Zap },
     { name: 'Security', href: '/security', icon: Shield },
@@ -60,6 +63,12 @@ const itemVariants = {
 export default function Footer() {
   return (
     <footer className="relative w-full bg-[#0A0F14] text-[#E8ECEF] overflow-hidden">
+      {/* Decorative Top Line */}
+      <div className="relative w-full">
+        <div className="absolute inset-0 bg-gradient-to-r from-[#39FF85]/20 via-[#4A90E2]/20 to-[#39FF85]/20 h-[1px] blur-[0.5px]" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#39FF85]/10 via-[#4A90E2]/10 to-[#39FF85]/10 h-[1px]" />
+      </div>
+
       {/* Animated Background Elements */}
       <div className="absolute inset-0 -z-10">
         {/* Neural Network Grid */}
@@ -107,9 +116,7 @@ export default function Footer() {
                 <p className="text-[#A8E4A0]/70 text-sm sm:text-base leading-relaxed mt-4 max-w-md">
                   Redefining seamless technology experiences.
                   <br />
-                  AI-powered innovation meets sleek design
-                  <br />
-                  in web and mobile apps.
+                  AI-powered innovation meets sleek design.
                 </p>
               </motion.div>
 
