@@ -1,7 +1,7 @@
 'use client'
 
 import Link from 'next/link'
-import { Github, Twitter, Linkedin, Mail, ArrowRight, Sparkles, Brain, Code, Globe, Shield, Zap, LucideIcon, BadgeInfo, TabletSmartphone, Webhook, MonitorPlay, Shell } from 'lucide-react'
+import { Github, Twitter, Linkedin, Mail, ArrowRight, Sparkles, Brain, Globe, LucideIcon, BadgeInfo, TabletSmartphone, Webhook, MonitorPlay } from 'lucide-react'
 import Newsletter from './Newsletter'
 import { motion } from 'framer-motion'
 
@@ -14,22 +14,16 @@ interface FooterLink {
 const footerLinks: Record<string, FooterLink[]> = {
   Company: [
     { name: 'Services', href: '/services', icon: BadgeInfo },
+    { name: 'Tutorials', href: '/tutorials', icon: MonitorPlay },
     { name: 'About Us', href: '/about', icon: Sparkles },
-    { name: 'Careers', href: '/careers', icon: Shell },
     { name: 'Contact', href: '/contact', icon: Mail },
   ],
   Products: [
     { name: 'Web Apps', href: '/products/web', icon: Globe },
     { name: 'Mobile Apps', href: '/products/mobile', icon: TabletSmartphone },
-    { name: 'API Development', href: '/products/api', icon: Webhook },
+    { name: 'Extensions ', href: '/products/extensions', icon: Webhook },
     { name: 'AI Solutions', href: '/products/ai', icon: Brain }
-  ],
-  Resources: [
-    { name: 'Tutorials', href: '/tutorials', icon: MonitorPlay },
-    { name: 'Documentation', href: '/docs', icon: Code },
-    { name: 'API Reference', href: '/api', icon: Zap },
-    { name: 'Security', href: '/security', icon: Shield },
-  ],
+  ]
 }
 
 const socialLinks = [
@@ -94,7 +88,7 @@ export default function Footer() {
       </div>
 
       <div className="relative w-full flex justify-center">
-        <div className="w-5/6 px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
+        <div className="w-2/3 px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
           <motion.div
             variants={containerVariants}
             initial="hidden"
@@ -105,15 +99,15 @@ export default function Footer() {
             {/* Top Section with Logo and Social Links */}
             <motion.div
               variants={containerVariants}
-              className="flex flex-col md:flex-row justify-between items-start md:items-center mb-12 sm:mb-16 pb-8 border-b border-[#1A1F26]"
+              className="flex flex-col md:flex-row justify-between items-start md:items-center mb-8 sm:mb-10 pb-6 border-b border-[#1A1F26]"
             >
-              <motion.div variants={itemVariants} className="mb-8 md:mb-0 w-full md:w-auto">
+              <motion.div variants={itemVariants} className="mb-6 md:mb-0 w-full md:w-auto">
                 <Link href="/" className="inline-block group">
                   <h2 className="text-2xl sm:text-3xl font-bold bg-gradient-to-r from-[#39FF85] via-[#A8E4A0] to-[#4A90E2] bg-clip-text text-transparent group-hover:scale-105 transition-transform duration-300">
                     BeaverHut
                   </h2>
                 </Link>
-                <p className="text-[#A8E4A0]/70 text-sm sm:text-base leading-relaxed mt-4 max-w-md">
+                <p className="text-[#A8E4A0]/70 text-sm sm:text-base leading-relaxed mt-3 max-w-md">
                   Redefining seamless technology experiences.
                   <br />
                   AI-powered innovation meets sleek design.
@@ -145,20 +139,20 @@ export default function Footer() {
             {/* Main Content Grid */}
             <motion.div
               variants={containerVariants}
-              className="flex flex-col 2xl:flex-row gap-8 sm:gap-12"
+              className="flex flex-col 2xl:flex-row gap-6 sm:gap-8"
             >
-              {/* Quick Links - 8 columns */}
-              <motion.div variants={itemVariants} className="w-full 2xl:w-8/12">
-                <div className="grid grid-cols-2 md:grid-cols-3 gap-8 sm:gap-12">
+              {/* Quick Links - 7 columns */}
+              <motion.div variants={itemVariants} className="w-full 2xl:w-7/12">
+                <div className="grid grid-cols-2 md:grid-cols-3 gap-6 sm:gap-8">
                   {Object.entries(footerLinks).map(([category, links], index) => (
                     <div 
                       key={category} 
-                      className={`space-y-4 ${index === 2 ? 'col-span-2 md:col-span-1' : ''}`}
+                      className={`space-y-3 ${index === 2 ? 'col-span-2 md:col-span-1' : ''}`}
                     >
                       <h3 className="text-sm sm:text-base font-semibold bg-gradient-to-r from-[#39FF85] to-[#4A90E2] bg-clip-text text-transparent">
                         {category}
                       </h3>
-                      <ul className="space-y-3">
+                      <ul className="space-y-2">
                         {links.map((link) => {
                           const Icon = link.icon
                           return (
@@ -186,11 +180,11 @@ export default function Footer() {
                 </div>
               </motion.div>
 
-              {/* Newsletter - 4 columns */}
-              <motion.div variants={itemVariants} className="w-full 2xl:w-4/12">
+              {/* Newsletter - 5 columns */}
+              <motion.div variants={itemVariants} className="w-full 2xl:w-7/12">
                 <div className="relative h-full">
                   <div className="absolute inset-0 bg-gradient-to-r from-[#39FF85]/5 to-[#4A90E2]/5 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                  <div className="relative p-6 sm:p-8 rounded-xl border border-[#39FF85]/10 h-full flex flex-col justify-center">
+                  <div className="relative p-5 sm:p-6 rounded-xl border border-[#39FF85]/10 h-full flex flex-col justify-center backdrop-blur-sm">
                     <Newsletter />
                   </div>
                 </div>
@@ -200,7 +194,7 @@ export default function Footer() {
             {/* Copyright */}
             <motion.div
               variants={itemVariants}
-              className="mt-12 sm:mt-16 pt-8 border-t border-[#1A1F26] text-center relative"
+              className="mt-8 sm:mt-10 pt-6 border-t border-[#1A1F26] text-center relative"
             >
               <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-[#4A90E2]/20 to-transparent" />
               <p className="text-[#A8E4A0]/50 text-sm sm:text-base">

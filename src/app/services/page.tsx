@@ -34,21 +34,20 @@ const services = [
     description: "Modern, responsive web applications built with cutting-edge technologies. From single-page applications to complex enterprise solutions.",
     features: [
       "React/Next.js Development",
-      "Progressive Web Apps (PWA)",
-      "Real-time Applications",
       "Enterprise Solutions",
       "E-commerce Platforms",
-      "Custom Web Portals"
+      "Custom Web Portals",
+      "Real-time Applications",
     ]
   },
   {
     icon: TabletSmartphone,
     title: "Mobile Applications",
-    description: "Native and cross-platform mobile applications that deliver exceptional user experiences across iOS and Android devices.",
+    description: "Native iOS applications that deliver exceptional user experiences on Apple devices.",
     features: [
-      "React Native Development",
-      "iOS & Android Apps",
-      "Cross-platform Solutions",
+      "Native iOS Development",
+      "iPhone & iPad Apps",
+      "Swift & SwiftUI Expertise",
       "Mobile-First Design",
       "Offline Capabilities",
       "Push Notifications"
